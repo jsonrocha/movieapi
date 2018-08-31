@@ -6,16 +6,44 @@
     width: 100%;
     height:100%;
     background-image: url("/images/theatrebanner.jpg");
+  }
 
+  body {
+      background-color: lightcoral;
+      color: white;
+  }
+
+  .moviebox {
+      margin-left: 30px;
+      margin-right: 30px;
+      margin-top: 25px;
+  }
+
+  .movielist {
+      font-size: 16px;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-around;
+  }
+
+  .movielist h3 {
+      max-width: 300px;
+      max-height: 22px;
+      margin-top: 30px;
+      margin-bottom:30px;
   }
 
   .movielist img {
     cursor: pointer;
+    height: 400px;
+    width: 300px;
   }
 
   .bannertext {
       text-align: center;
       color:white;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       font-size: 80px;
       margin-top: 0px;
       margin-bottom: 0px;

@@ -67,14 +67,13 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-
           <section className="banner">
           <h1 className="bannertext">Now Playing</h1>
           </section>
 
         </header>  
 
-        <section className="movielist">
+        <section>
 
           <MovieList movies={this.state.movies} />
 

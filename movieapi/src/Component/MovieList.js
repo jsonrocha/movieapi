@@ -9,13 +9,13 @@ class MovieList extends Component {
 
     render() {
         return (
-            <section>
+            <section className="movielist">
                 {this.props.movies.map((movie, i) => {
                     // this.getMoviePoster(movie.poster_path)
                     return (
-                        <section id="movies_list_display" key={i}>
-                            <h3>{movie.original_title}</h3>
+                        <section className="moviebox" key={i}>
                             <img id="movie"src={`${this.imageURL}${this.imageSize}${movie.poster_path}`} alt={movie.title}></img>
+                            <h3>{movie.original_title}</h3>
                         </section>
 
                     )//END return
