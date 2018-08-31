@@ -1,32 +1,87 @@
-import React, { Component } from 'react';
-import './App.css';
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
+import React, { Component } from "react";
+// import {BrowserRouter as Router, Link, Switch} from "react-router-dom";
+import MovieList from './Component/MovieList';
+
+//KEY= {e68c1a67b9b6a0fff17d9ed980ca72cf}
+//Example Request {https://api.themoviedb.org/3/movie/550?api_key=e68c1a67b9b6a0fff17d9ed980ca72cf}
+
 
 class App extends Component {
 
- //API KEY {e68c1a67b9b6a0fff17d9ed980ca72cf}
- //API Read Access Token {yJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlNjhjMWE2N2I5YjZhMGZmZjE3ZDllZDk4MGNhNzJjZiIsInN1YiI6IjViODgzNmUyYzNhMzY4MWZlYzAxNWUwNiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.6805CbmV7wyHtccC5-Fzm4J9O9s9m6QhZnBDmfufA0c}
- //Example Request {https://api.themoviedb.org/3/movie/550?api_key=e68c1a67b9b6a0fff17d9ed980ca72cf}
+  constructor(props) {
+    super(props);
+    this.state = {
+      movies: [],
+      moviePoster: {}
+    };
+  }
+  baseURL = "https://api.themoviedb.org/3/movie/now_playing?api_key="
+  key = "e68c1a67b9b6a0fff17d9ed980ca72cf"
+  tmp = "https://api.themoviedb.org/3/movie/now_playing?api_key=e68c1a67b9b6a0fff17d9ed980ca72cf"
+  imageURL = "https://image.tmdb.org/t/p/"
+  imageSize = "w200"
 
   componentDidMount() {
-    fetch("")
-    .then(resp => {
-      if (resp.status === 200){
-        return resp.json()
-      } else {
-        //handle the error somehow
-      }
-    })
-    .then(json => {
-      console.log(json)
-    })
+    this.getJSON()
+    this.getMoviePoster("/xqECHNvzbDL5I3iiOVUkVPJMSbc.jpg")
   }
+
+  getJSON = () => {
+    fetch(this.baseURL + this.key + "&page=1"
+
+    )
+      .then(resp => {
+        if (resp.status === 200) {
+          return resp.json();
+        } else {
+          return <section>Failure to Load Page</section>;
+        }
+      })
+      .then(json => {
+        // console.log(json);
+        this.setState({
+          movies: json.results
+        });
+      });
+  }
+
+  getMoviePoster = (imagePath) => {
+    fetch(this.imageURL + this.imageSize + imagePath
+
+    )
+      .then(resp => {
+        if (resp.status === 200) {
+          return resp.blob();
+        } else {
+          return <section><img src="./images/404.jpg" /></section>;
+        }
+      })
+      .then(poster => {
+
+        this.setState({
+          moviePoster: poster
+        });
+      });
+  }
+
+
   render() {
     return (
-      <Router>
       <div className="App">
+        <header className="App-header">
+
+          <section className="mainheader">
+          <img src="./images/405.jpg" />
+          </section>
+
+        </header>  
+
+        <section className="movielist">
+
+          <MovieList movies={this.state.movies} />
+
+        </section>
       </div>
-      </Router>
     );
   }
 }
