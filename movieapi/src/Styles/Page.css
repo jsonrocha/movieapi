@@ -1,0 +1,32 @@
+.App {
+    text-align: center;
+  }
+
+  .banner {
+    width: 100%;
+    height:100%;
+    background-image: url("/images/theatrebanner.jpg");
+
+  }
+
+  .movielist img {
+    cursor: pointer;
+  }
+
+  .bannertext {
+      text-align: center;
+      color:white;
+      font-size: 80px;
+      margin-top: 0px;
+      margin-bottom: 0px;
+      padding-top:25px;
+      padding-bottom:25px;
+  }
+  
+  .App-title {
+    font-size: 1.5em;
+  }
+  
+  .App-intro {
+    font-size: large;
+  }

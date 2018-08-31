@@ -9,8 +9,7 @@ class MovieList extends Component {
 
     render() {
         return (
-            <section className="movie_list_container">
-
+            <section>
                 {this.props.movies.map((movie, i) => {
                     // this.getMoviePoster(movie.poster_path)
                     return (
