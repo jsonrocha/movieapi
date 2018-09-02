@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import MovieDetail from './MovieDetail';
 
 class MovieList extends Component {
     key = "e99344bac0d2a5336621a8492eeb2e74"
@@ -15,8 +16,9 @@ class MovieList extends Component {
                     // this.getMoviePoster(movie.poster_path)
                     return (
                         <section id="movies_list_display" key={i}>
-                            <h3>{movie.original_title}</h3>
-                            <img id="movie"src={`${this.imageURL}${this.imageSize}${movie.poster_path}`} alt={movie.title}></img>
+                            <h3><link to="/moviedetails">{movie.original_title}</link></h3>
+                            <img id="movie" src={`${this.imageURL}${this.imageSize}${movie.poster_path}`} alt={movie.title}></img>
+                            <MovieDetail movies={this.state.movies} />
                         </section>
 
                     )//END return
@@ -24,8 +26,10 @@ class MovieList extends Component {
                 }//END {this.state.movies.map((movie, i) => 
                 )//END ((movies,i))
                 }
-                 </section>  
-        )}}
+            </section>
+        )
+    }
+}
 
 
-                export default MovieList;
+export default MovieList;

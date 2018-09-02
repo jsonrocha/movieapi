@@ -1,10 +1,8 @@
 import React, { Component } from "react";
-// import {BrowserRouter as Router, Link, Switch} from "react-router-dom";
+import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import MovieList from './Component/MovieList';
-
-//KEY= {e68c1a67b9b6a0fff17d9ed980ca72cf}
-//Example Request {https://api.themoviedb.org/3/movie/550?api_key=e68c1a67b9b6a0fff17d9ed980ca72cf}
-
+import NavBar from './Component/NavBar';
+import MovieDetail from './Component/MovieDetail';
 
 class App extends Component {
 
@@ -67,21 +65,27 @@ class App extends Component {
 
   render() {
     return (
+      <Router>
       <div className="App">
         <header className="App-header">
 
           <section className="mainheader">
           <img src="./images/405.jpg" />
+          < NavBar />
           </section>
 
         </header>  
-
+        <Switch>
+           <Route path="/nowshowing" exact component={MovieList} />
+           <Route path="/moviedetails" exact component={MovieDetail} />
+         </Switch>
         <section className="movielist">
 
           <MovieList movies={this.state.movies} />
 
         </section>
       </div>
+      </Router>
     );
   }
 }
