@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import MovieDetail from './MovieDetail';
+import { Link } from "react-router-dom";
 
 class MovieList extends Component {
     key = "e99344bac0d2a5336621a8492eeb2e74"
@@ -15,11 +16,10 @@ class MovieList extends Component {
                 {this.props.movies.map((movie, i) => {
                     // this.getMoviePoster(movie.poster_path)
                     return (
-                        <section id="movies_list_display" key={i}>
-                            <h3><link to="/moviedetails">{movie.original_title}</link></h3>
+                        <ul id="movies_list_display" key={i}>
+                            <li><Link to="/moviedetails">{movie.original_title}</Link></li>
                             <img id="movie" src={`${this.imageURL}${this.imageSize}${movie.poster_path}`} alt={movie.title}></img>
-                            <MovieDetail movies={this.state.movies} />
-                        </section>
+                        </ul>
 
                     )//END return
 

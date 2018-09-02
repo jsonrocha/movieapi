@@ -68,21 +68,15 @@ class App extends Component {
       <Router>
       <div className="App">
         <header className="App-header">
-
-          <section className="mainheader">
           <img src="./images/405.jpg" />
           < NavBar />
-          </section>
-
         </header>  
         <Switch>
            <Route path="/nowshowing" exact component={MovieList} />
            <Route path="/moviedetails" exact component={MovieDetail} />
          </Switch>
         <section className="movielist">
-
           <MovieList movies={this.state.movies} />
-
         </section>
       </div>
       </Router>

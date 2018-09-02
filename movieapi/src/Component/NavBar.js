@@ -6,7 +6,7 @@ class NavBar extends Component {
         return (
             <header>
                 <ul>
-                    <li> <Link to ="/nowshowing">NOW SHOWING </Link> </li>
+                    <li> <Link to="/nowshowing">NOW SHOWING </Link> </li>
                     <li> MY LIST </li>
                     <li> ALREADY SEEN </li>
                 </ul>
