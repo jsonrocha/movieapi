@@ -16,8 +16,6 @@ class App extends Component {
   baseURL = "https://api.themoviedb.org/3/movie/now_playing?api_key="
   key = "e68c1a67b9b6a0fff17d9ed980ca72cf"
   tmp = "https://api.themoviedb.org/3/movie/now_playing?api_key=e68c1a67b9b6a0fff17d9ed980ca72cf"
-  imageURL = "https://image.tmdb.org/t/p/"
-  imageSize = "w200"
 
   componentDidMount() {
     this.getJSON()
@@ -44,14 +42,14 @@ class App extends Component {
   }
 
   getMoviePoster = (imagePath) => {
-    fetch(this.imageURL + this.imageSize + imagePath
+    fetch(imagePath
 
     )
       .then(resp => {
         if (resp.status === 200) {
           return resp.blob();
         } else {
-          return <section><img src="./images/404.jpg" /></section>;
+          return <section><img src="/images/404.jpg" /></section>;
         }
       })
       .then(poster => {
@@ -61,7 +59,6 @@ class App extends Component {
         });
       });
   }
-
 
   render() {
     return (
