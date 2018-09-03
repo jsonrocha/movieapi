@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import MovieList from './Component/MovieList';
 import NavBar from './Component/NavBar';
+import "./Styles/Page.css";
 import MovieDetail from './Component/MovieDetail';
 
 class App extends Component {
