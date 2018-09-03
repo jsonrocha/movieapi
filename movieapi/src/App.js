@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import MovieList from './Component/MovieList';
 import NavBar from './Component/NavBar';
 import "./Styles/Page.css";
@@ -30,12 +30,9 @@ class App extends Component {
       .then(resp => {
         if (resp.status === 200) {
           return resp.json();
-        } else {
-          return <section>Failure to Load Page</section>;
         }
       })
       .then(json => {
-        // console.log(json);
         this.setState({
           movies: json.results
         });
@@ -43,9 +40,7 @@ class App extends Component {
   }
 
   getMoviePoster = (imagePath) => {
-    fetch(imagePath
-
-    )
+    fetch(imagePath)
       .then(resp => {
         if (resp.status === 200) {
           return resp.blob();
@@ -64,19 +59,19 @@ class App extends Component {
   render() {
     return (
       <Router>
-      <div className="App">
-        <header className="App-header">
-          <img src="./images/405.jpg" />
-          < NavBar />
-        </header>  
-        <Switch>
-           <Route path="/nowshowing" exact component={MovieList} />
-           <Route path="/moviedetails" exact component={MovieDetail} />
-         </Switch>
-        <section className="movielist">
-          <MovieList movies={this.state.movies} />
-        </section>
-      </div>
+        <div className="App">
+          <header className="App-header">
+            <img src="./images/405.jpg" />
+            < NavBar />
+          </header>
+          <Switch>
+            <Route path="/nowshowing" exact component={MovieList} />
+            <Route path="/moviedetails" exact component={MovieDetail} />
+          </Switch>
+          <section className="movielist">
+            <MovieList movies={this.state.movies} />
+          </section>
+        </div>
       </Router>
     );
   }

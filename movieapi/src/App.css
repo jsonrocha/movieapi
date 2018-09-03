@@ -13,3 +13,11 @@ h1 {
 .App-intro {
   font-size: large;
 }
+
+.App-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  font-size: 24px;
+  background-color: pink;
+}

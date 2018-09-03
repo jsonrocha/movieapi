@@ -1,55 +1,43 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
+import '../App.css';
 
-class MovieDetail extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      movie: [],
-      moviePoster: {}
-    };
-  }
-  baseURL = "https://api.themoviedb.org/3/movie/now_playing?api_key=";
-  key = "e68c1a67b9b6a0fff17d9ed980ca72cf";
-  tmp =
-    "https://api.themoviedb.org/3/movie/now_playing?api_key=e68c1a67b9b6a0fff17d9ed980ca72cf";
-  imageURL = "https://image.tmdb.org/t/p/";
-  imageSize = "w200";
+class MovieList extends Component {
 
-  componentDidMount() {
-    this.getJSON();
-    this.getMoviePoster("/xqECHNvzbDL5I3iiOVUkVPJMSbc.jpg");
-  }
-
-  getJSON = () => {
-    fetch(this.baseURL + this.key + "&page=1")
-      .then(resp => {
-        if (resp.status === 200) {
-          return resp.json();
-        } else {
-          return <section>Failure to Load Page</section>;
+    constructor(props) {
+        super(props)
+        this.state = {
+            name: 'loading...',
+            quotes: '',
+            results: []
         }
-      })
-      .then(json => {
-        this.setState({
-          movie: json.results
-        });
-      });
-  };
+    };
 
-  getMovieDetails = () => fetch(this.baseURL + this.imageURL);
+    componentDidMount() {
+        setInterval(() => {
+            const _url = "https://api.themoviedb.org/3/movie/now_playing?api_key=e68c1a67b9b6a0fff17d9ed980ca72cf"
+            fetch(_url).then(resp => resp.json())
+                .then(nowPlayingList => {
+                    console.log(nowPlayingList)
+                    this.setState({
+                        name:nowPlayingList.results[0].title,
+                        quotes:nowPlayingList.results[0].poster_path,
+                        date:nowPlayingList.results[0].release_date,
+                    })
+                })
+       })
+   };
 
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <section className="mainheader">
-            <img src="./images/405.jpg" />
-          </section>
-        </header>
-        <section className="movielist" />
-      </div>
-    );
-  }
+   render() {
+       return (
+           <div>
+               <ul>
+                   <li>Title:{this.state.name}</li>
+                   <li>{this.state.quotes}</li>
+                   <li>Release Date:{this.state.date}</li>
+                   </ul>
+           </div>
+       )
+   }
 }
 
-export default MovieDetail;
+export default MovieList

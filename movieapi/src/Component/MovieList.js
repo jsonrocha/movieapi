@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import MovieDetail from './MovieDetail';
 import { Link } from "react-router-dom";
 
 class MovieList extends Component {
