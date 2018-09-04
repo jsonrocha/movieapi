@@ -20,20 +20,20 @@ class MovieList extends Component {
                     console.log(nowPlayingList)
                     this.setState({
                         name:nowPlayingList.results[0].title,
-                        quotes:nowPlayingList.results[0].poster_path,
                         date:nowPlayingList.results[0].release_date,
+                        overview: nowPlayingList.results[0].overview,
+                      
                     })
                 })
        })
    };
-
    render() {
        return (
            <div>
                <ul>
                    <li>Title:{this.state.name}</li>
-                   <li>{this.state.quotes}</li>
                    <li>Release Date:{this.state.date}</li>
+                   <li>Overview:{this.state.overview}</li>
                    </ul>
            </div>
        )

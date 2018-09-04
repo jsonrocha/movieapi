@@ -69,7 +69,7 @@ class App extends Component {
             <Route path="/moviedetails" exact component={MovieDetail} />
           </Switch>
           <section className="movielist">
-            <MovieList movies={this.state.movies} />
+          <MovieList movies={this.state.movies} />
           </section>
         </div>
       </Router>
