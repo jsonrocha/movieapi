@@ -36,9 +36,6 @@ class App extends Component {
           <NavBar/>
           </header>
           <section>
-            <div>
-            <h1 className="bannertext">Now Playing</h1>
-            </div>
             <Switch>
               <Route path="/" exact component={() => <Home movies={this.state.movies} />} />
               <Route path="/Movie/:movieId" exact component={MovieDetail} />

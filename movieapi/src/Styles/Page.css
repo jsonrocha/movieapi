@@ -2,6 +2,16 @@
     text-align: center;
   }
 
+  .details {
+    margin-top: 30px;
+  }
+
+  .Poster {
+      margin-top: 30px;
+      margin-left: 60px;
+      margin-right: 60px;
+  }
+
   .banner {
     width: 100%;
     height:100%;

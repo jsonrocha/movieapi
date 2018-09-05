@@ -23,18 +23,24 @@ class MovieDetail extends Component {
                         name:nowPlayingList.results[movieId].title,
                         date:nowPlayingList.results[movieId].release_date,
                         overview: nowPlayingList.results[movieId].overview,
+                        poster: nowPlayingList.results[movieId].poster_path
                       
                     })
                 })
        })
    };
    render() {
+    const imageURL = 'https://image.tmdb.org/t/p/'
+    const imageSize = 'w300'
        return (
-           <div>
-               <ul>
-                   <li>Title:{this.state.name}</li>
-                   <li>Release Date:{this.state.date}</li>
-                   <li>Overview:{this.state.overview}</li>
+           <div className="Poster">
+                <img className="image"
+                src={imageURL + imageSize + this.state.poster} 
+                alt={this.state.name} />
+               <ul className="details">
+                   <li>Title: {this.state.name}</li>
+                   <li>Release Date: {this.state.date}</li>
+                   <li>Overview: {this.state.overview}</li>
                    </ul>
            </div>
        )

@@ -5,7 +5,6 @@ const imageSize = 'w200'
 
 class SingleMovie extends Component {
     render() {
-        const image_width = this.props.imageWidth
         let movie = this.props.movie
         return (
             <section className="moviebox">
