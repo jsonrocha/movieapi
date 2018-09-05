@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 class NavBar extends Component {
     render() {
         return (
-            <header>
+            <header className="banner">
                 <ul>
-                    <li> <Link to="/nowshowing">NOW SHOWING </Link> </li>
+                    <li> <Link to="/">NOW PLAYING </Link> </li>
                     <li> MY LIST </li>
                     <li> ALREADY SEEN </li>
                 </ul>
